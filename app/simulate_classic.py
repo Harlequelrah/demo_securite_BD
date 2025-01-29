@@ -1,11 +1,11 @@
-# simulate_classic.py
-
-from database_con import db, cipher_suite
 
 
-cursor = db.cursor()
+from database_con import db_1, cipher_suite
 
-# Fonction pour simuler l'attaque classique
+
+cursor = db_1.cursor()
+
+
 def simulate_classic_attack():
     print("Simulation d'une attaque classique : interception de la clé")
 
@@ -18,9 +18,8 @@ def simulate_classic_attack():
         except Exception as e:
             print(f"Erreur de déchiffrement pour {username}: {str(e)}")
 
-# Simuler l'attaque classique
+
 simulate_classic_attack()
 
-# 5. Fermer la connexion
 cursor.close()
-db.close()
+db_1.close()

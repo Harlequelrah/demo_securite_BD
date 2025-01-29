@@ -1,10 +1,10 @@
-# simulate_quantic.py
+
 
 import random
 from cryptography.fernet import Fernet
-from database_con import db, cipher_suite
+from database_con import db_2, cipher_suite
 
-cursor = db.cursor()
+cursor = db_2.cursor()
 
 # 1. Générer ou charger la clé
 def load_or_generate_key():
@@ -18,7 +18,7 @@ def load_or_generate_key():
             key_file.write(key)
         return key
 
-# Fonction pour simuler l'attaque quantique
+
 def simulate_quantum_attack():
     print("Simulation d'une attaque quantique : tentative de manipulation de la clé")
 
@@ -40,9 +40,9 @@ def simulate_quantum_attack():
             print(f"Erreur de déchiffrement pour {username}: {str(e)}")
             print("Erreur de déchiffrement : la clé a été compromise ou l'attaque a échoué.")
 
-# Simuler l'attaque quantique
+
 simulate_quantum_attack()
 
-# 5. Fermer la connexion
+
 cursor.close()
-db.close()
+db_2.close()

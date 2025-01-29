@@ -24,11 +24,18 @@ key = load_or_generate_key()
 cipher_suite = Fernet(key)
 
 # 2. Connexion à la base de données
-db = mysql.connector.connect(
+db_1 = mysql.connector.connect(
     host=os.getenv("HOST"),
     user=os.getenv("USER"),
     password=os.getenv("PASSWORD"),
-    database=os.getenv("DATABASE")
+    database=os.getenv("DATABASE_1")
+)
+
+db_2=mysql.connector.connect(
+    host=os.getenv("HOST"),
+    user=os.getenv("USER"),
+    password=os.getenv("PASSWORD"),
+    database=os.getenv("DATABASE_2")
 )
 
 
